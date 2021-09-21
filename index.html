@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rtx-On/Off</title>
+
+    <style>
+    .reveal{
+        width:1280px;
+        height:720px;
+        border:#000 1px solid;
+        float:left;
+        margin:24px;
+    }
+    .reveal > img{
+        position:absolute;
+    }
+    .reveal > .img2{
+        clip:rect(0px, 640px, 720px, 0px); /* top, right, bottom, left */ 
+    }
+    .reveal > .activator{
+        position:absolute;
+        width:1280px;
+        height:720px;
+        opacity:0;
+        cursor: e-resize;
+    }</style>
+    
+    
+    <script>
+        function reveal(event){
+    event.target.previousElementSibling.style.clip = "rect(0px, "+(event.clientX-event.target.offsetLeft)+"px, 720px, 0px)";  
+}
+    </script>
+</head>
+<body>
+<div class="reveal">
+  <img src="1.jpg">
+  <img class="img2" src="2.jpg">
+  <div class="activator" onmousemove="reveal(event)"></div>
+</div>
+</div>
+</body>
+</html>
